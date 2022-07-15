@@ -62,7 +62,7 @@ function SalesCard() {
                   <th className="show992">Visitas</th>
                   <th className="show992">Vendas</th>
                   <th>Total</th>
-                  <th>Notificar</th>
+                  {/* <th>Notificar</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -81,9 +81,9 @@ function SalesCard() {
                       <td className="show992">{sale.visited}</td>
                       <td className="show992">{sale.deals}</td>
                       <td>{sale.amount.toFixed(2)}</td>
-                      <td><div className="dsmeta-red-btn-container">
+                      {/* <td><div className="dsmeta-red-btn-container">
                               <NotificationButton />
-                      </div></td>
+                      </div></td> */}
                     </tr>
                     )
                   })

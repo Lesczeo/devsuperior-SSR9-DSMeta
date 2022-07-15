@@ -18,11 +18,15 @@ function SalesCard() {
   const [sales, setSales] = useState<Sale[]>([]);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/sales`)
+
+    const dmin = minDate.toISOString().slice(0, 10);
+    const dmax = maxDate.toISOString().slice(0, 10);
+
+    axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
     .then(response => {
       setSales(response.data.content);
     });
-  }, []);
+  }, [minDate, maxDate]);
 
   return(
       <div className="dsmeta-card">
@@ -63,6 +67,8 @@ function SalesCard() {
               </thead>
               <tbody>
                 {
+                  // OBSERVACOES DO MAP:
+                  // O metodo .map percorre o array sales, renderizando cada item da lista
                   sales.map(sale => {
                     // OBSERVACOES DO RETURN:
                     //  O metodo de variavel .toLocaleDateString formata a visualizacao da propriedade sale.date em barras
